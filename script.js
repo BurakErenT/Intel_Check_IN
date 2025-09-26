@@ -37,9 +37,14 @@ form.addEventListener("submit", function (event) {
   const attendeeCounter = document.getElementById("attendeeCount");
   attendeeCounter.textContent = count;
 
+  
+
   //Show welcome message
   const message = `welcome, ${name} from ${teamName}!`;
   console.log(message);
+
+  const greeting = document.getElementById("greeting");
+  greeting.textContent = message;
 
   form.reset();
 });
