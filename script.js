@@ -19,7 +19,12 @@ form.addEventListener("submit", function (event) {
   console.log(name, team, teamName);
 
   //Increment count
-  count++
+  // Stop check-in if maxCount reached
+  if (count >= maxCount) {
+    alert(`Check-in is closed. Maximum of ${maxCount} reached.`);
+    return;
+  }
+  count++;
   console.log("Total check-ins: ", count);
 
   //update progress bar
@@ -28,7 +33,10 @@ form.addEventListener("submit", function (event) {
 
   const teamCounter = document.getElementById(team + "Count");
   teamCounter.textContent = parseInt(teamCounter.textContent) + 1;
-  
+
+  const attendeeCounter = document.getElementById("attendeeCount");
+  attendeeCounter.textContent = count;
+
   //Show welcome message
   const message = `welcome, ${name} from ${teamName}!`;
   console.log(message);
