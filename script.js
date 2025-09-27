@@ -31,6 +31,12 @@ form.addEventListener("submit", function (event) {
   const percentage = Math.round((count / maxCount) * 100) + "%";
   console.log(`progress: ${percentage}`);
 
+  // Update the visual progress bar width
+  const progressBar = document.getElementById("progressBar");
+  if (progressBar) {
+    progressBar.style.width = percentage;
+  }
+
   const teamCounter = document.getElementById(team + "Count");
   teamCounter.textContent = parseInt(teamCounter.textContent) + 1;
 
@@ -45,6 +51,8 @@ form.addEventListener("submit", function (event) {
 
   const greeting = document.getElementById("greeting");
   greeting.textContent = message;
+  greeting.classList.add("success-message");
+  greeting.style.display = "block";
 
   form.reset();
 });
